@@ -1,0 +1,302 @@
+
+/*Main page styles*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
+}
+
+header {
+    background-color: rgb(59, 109, 179);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-family: Georgia, serif;
+}
+
+/*Navigation menus*/
+nav {
+    background-color: rgb(45, 83, 136);
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: gainsboro;
+}
+
+main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+article {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: rgb(45, 83, 136);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/*Home page hobby boxes*/
+.hobby-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.hobby-item {
+    position: relative;
+    flex: 1 1 40%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+/* Home page hobby images*/
+.hobby-item img {
+    display: block;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    object-fit: contain;
+   
+}
+
+.hobby-item:hover,
+.hobby-item:focus-within {
+    transform: scale(1.03);
+}
+
+/*Reveals the images when hovered over*/
+.hobby-item:hover img,
+.hobby-item:focus-within img {
+    height: 350px;
+    opacity: 1;
+    margin-bottom: 15px;
+}
+
+/*Action figure gallery*/
+.figure-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.figure-card {
+    flex: 0 1 30%;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.figure-card img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.figure-description {
+    padding: 15px;
+    text-align: center;
+}
+
+.figure-description h3 {
+    margin-top: 0;
+}
+
+/*Model kit galleries organized by grade*/
+.model-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.model-item {
+    flex: 1 1 250px;
+    max-width: 320px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.model-item img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.model-item h3 {
+    margin-bottom: 5px;
+}
+
+/*Links to the three customization tips*/
+.sub-nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.sub-nav a {
+    display: inline-block;
+    margin: 0;
+    padding: 5px;
+}
+
+
+/*Customization articles*/
+.sub-article {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* Customization images */
+.sub-article > img {
+    display: block;
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/*article text*/
+.article-body {
+    width: 100%;
+    min-width: 0;
+}
+
+.article-body h3 {
+    margin-top: 0;
+}
+
+
+
+/*form validation section*/
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 120px;
+}
+
+form button {
+    background-color: rgb(45, 83, 136);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: rgb(59, 109, 179);
+}
+
+
+/*Posing tutorial*/
+.posing-article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.posing-article h2 {
+    text-align: center;
+}
+
+.posing-article h3 {
+    margin-top: 30px;
+}
+
+.posing-article p {
+    line-height: 1.6;
+}
+
+.posing-article img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 450px;
+    margin: 20px auto;
+    border-radius: 8px;
+}
+
+/*Smaller screens*/
+@media (max-width: 800px) {
+    .figure-card {
+        flex-basis: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hobby-item,
+    .figure-card {
+        flex-basis: 100%;
+    }
+
+    .model-item {
+        max-width: 100%;
+    }
+
+    .sub-article{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sub-article > img {
+        width: 100%;
+    }
+
+    .posing-article {
+        padding: 15px;
+    }
+}
