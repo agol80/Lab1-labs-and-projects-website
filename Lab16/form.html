@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        .invalid {
+            color:red;
+        }
+        .valid {
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <form id="htmlform">
+        <input required type="text" id="type" placeholder="Enter Name">
+
+        <input required type="email" id="email" placeholder="Enter Email"> 
+
+        <input required type="password" id="password" placeholder="Enter Password">
+
+        <section hidden id="passRules">
+            <p id="lenRule" class="invalid">Needs at least 6 characters</p> 
+            <p id="charRule" class="invalid">Must include a special character (!@#$...)</p>
+            <p id="upperRule" class="invalid">Must include an uppercase letter (A-Z)</p> 
+        </section>
+
+        <button type="submit">Submit</button>
+        
+        
+    </form>
+    <script>
+        const form = document.getElementById("htmlform");
+        const passInput = document.getElementById("password");
+        const passRules = document.getElementById("passRules");
+        const lenRule = document.getElementById("lenRule");
+        const charRule = document.getElementById("charRule");
+        const upperRule = document.getElementById("upperRule");
+
+        document.addEventListener('submit', (event) => {
+            event.preventDefault()
+            window.location.href = "success.html"
+            console.log('form submitted successfully')
+        });
+
+        document.addEventListener("input", () => {
+            const password = passInput.value;
+            passRules.hidden = false;
+            const lenCheck = password.length >=6;
+            const charCheck = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            const upperCheck = /[A-Z]/.test(password);
+            lenRule.classList.toggle("valid", lenCheck);
+            lenRule.classList.toggle("invalid", !lenCheck);
+
+            charRule.classList.toggle("valid", charCheck);
+            charRule.classList.toggle("invalid", !charCheck);
+
+            upperRule.classList.toggle("valid", upperCheck);
+            upperRule.classList.toggle("invalid", !upperCheck);
+        });
+
+        
+
+     </script>
+
+</body>
+</html>
